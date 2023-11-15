@@ -19,6 +19,13 @@
 		422B69BB2AFAF98100402EB9 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 422B69BA2AFAF98100402EB9 /* GoogleSignIn */; };
 		422B69BD2AFAF98100402EB9 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 422B69BC2AFAF98100402EB9 /* GoogleSignInSwift */; };
 		422B69BF2AFB019F00402EB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 422B69BE2AFB019F00402EB9 /* GoogleService-Info.plist */; };
+		422B69C12B041A5F00402EB9 /* SnapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B69C02B041A5F00402EB9 /* SnapsViewController.swift */; };
+		422B69C32B04207D00402EB9 /* ImagenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B69C22B04207D00402EB9 /* ImagenViewController.swift */; };
+		422B69C62B0429F700402EB9 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 422B69C52B0429F700402EB9 /* FirebaseDatabase */; };
+		422B69C82B042A0400402EB9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 422B69C72B042A0400402EB9 /* FirebaseStorage */; };
+		422B69CA2B0431DA00402EB9 /* ElegirUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B69C92B0431DA00402EB9 /* ElegirUsuarioViewController.swift */; };
+		422B69CE2B043B2900402EB9 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B69CD2B043B2900402EB9 /* Usuario.swift */; };
+		422B69D02B04453C00402EB9 /* CrearUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B69CF2B04453C00402EB9 /* CrearUsuarioViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +38,11 @@
 		422B69A02AFADC9200402EB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		422B69A22AFADC9200402EB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		422B69BE2AFB019F00402EB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		422B69C02B041A5F00402EB9 /* SnapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapsViewController.swift; sourceTree = "<group>"; };
+		422B69C22B04207D00402EB9 /* ImagenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagenViewController.swift; sourceTree = "<group>"; };
+		422B69C92B0431DA00402EB9 /* ElegirUsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElegirUsuarioViewController.swift; sourceTree = "<group>"; };
+		422B69CD2B043B2900402EB9 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		422B69CF2B04453C00402EB9 /* CrearUsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrearUsuarioViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,9 +50,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				422B69C62B0429F700402EB9 /* FirebaseDatabase in Frameworks */,
 				422B69BD2AFAF98100402EB9 /* GoogleSignInSwift in Frameworks */,
 				422B69AE2AFAE19000402EB9 /* FirebaseAnalytics in Frameworks */,
 				422B69BB2AFAF98100402EB9 /* GoogleSignIn in Frameworks */,
+				422B69C82B042A0400402EB9 /* FirebaseStorage in Frameworks */,
 				422B69B22AFAE19000402EB9 /* FirebaseAuth in Frameworks */,
 				422B69B02AFAE19000402EB9 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
@@ -52,8 +66,11 @@
 		422B69882AFADC9100402EB9 = {
 			isa = PBXGroup;
 			children = (
+				422B69CC2B043B0400402EB9 /* Modelos */,
+				422B69CB2B043AAE00402EB9 /* ViewControllers */,
 				422B69932AFADC9100402EB9 /* TapiaSnapchat */,
 				422B69922AFADC9100402EB9 /* Products */,
+				422B69C42B0429F700402EB9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,7 +87,6 @@
 			children = (
 				422B69942AFADC9100402EB9 /* AppDelegate.swift */,
 				422B69962AFADC9100402EB9 /* SceneDelegate.swift */,
-				422B69982AFADC9100402EB9 /* iniciarSesionViewController.swift */,
 				422B699A2AFADC9100402EB9 /* Main.storyboard */,
 				422B699D2AFADC9200402EB9 /* Assets.xcassets */,
 				422B699F2AFADC9200402EB9 /* LaunchScreen.storyboard */,
@@ -78,6 +94,33 @@
 				422B69BE2AFB019F00402EB9 /* GoogleService-Info.plist */,
 			);
 			path = TapiaSnapchat;
+			sourceTree = "<group>";
+		};
+		422B69C42B0429F700402EB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		422B69CB2B043AAE00402EB9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				422B69C22B04207D00402EB9 /* ImagenViewController.swift */,
+				422B69C02B041A5F00402EB9 /* SnapsViewController.swift */,
+				422B69982AFADC9100402EB9 /* iniciarSesionViewController.swift */,
+				422B69C92B0431DA00402EB9 /* ElegirUsuarioViewController.swift */,
+				422B69CF2B04453C00402EB9 /* CrearUsuarioViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		422B69CC2B043B0400402EB9 /* Modelos */ = {
+			isa = PBXGroup;
+			children = (
+				422B69CD2B043B2900402EB9 /* Usuario.swift */,
+			);
+			path = Modelos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,6 +145,8 @@
 				422B69B12AFAE19000402EB9 /* FirebaseAuth */,
 				422B69BA2AFAF98100402EB9 /* GoogleSignIn */,
 				422B69BC2AFAF98100402EB9 /* GoogleSignInSwift */,
+				422B69C52B0429F700402EB9 /* FirebaseDatabase */,
+				422B69C72B042A0400402EB9 /* FirebaseStorage */,
 			);
 			productName = TapiaSnapchat;
 			productReference = 422B69912AFADC9100402EB9 /* TapiaSnapchat.app */;
@@ -163,9 +208,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				422B69C12B041A5F00402EB9 /* SnapsViewController.swift in Sources */,
+				422B69C32B04207D00402EB9 /* ImagenViewController.swift in Sources */,
+				422B69CE2B043B2900402EB9 /* Usuario.swift in Sources */,
 				422B69992AFADC9100402EB9 /* iniciarSesionViewController.swift in Sources */,
 				422B69952AFADC9100402EB9 /* AppDelegate.swift in Sources */,
 				422B69972AFADC9100402EB9 /* SceneDelegate.swift in Sources */,
+				422B69D02B04453C00402EB9 /* CrearUsuarioViewController.swift in Sources */,
+				422B69CA2B0431DA00402EB9 /* ElegirUsuarioViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +476,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 422B69B92AFAF98100402EB9 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		422B69C52B0429F700402EB9 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 422B69AC2AFAE19000402EB9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		422B69C72B042A0400402EB9 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 422B69AC2AFAE19000402EB9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
