@@ -26,6 +26,10 @@
 		422B69CA2B0431DA00402EB9 /* ElegirUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B69C92B0431DA00402EB9 /* ElegirUsuarioViewController.swift */; };
 		422B69CE2B043B2900402EB9 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B69CD2B043B2900402EB9 /* Usuario.swift */; };
 		422B69D02B04453C00402EB9 /* CrearUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B69CF2B04453C00402EB9 /* CrearUsuarioViewController.swift */; };
+		422B69D22B0D557A00402EB9 /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B69D12B0D557A00402EB9 /* Snap.swift */; };
+		422B69D42B0D5DAE00402EB9 /* VerSnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B69D32B0D5DAE00402EB9 /* VerSnapViewController.swift */; };
+		422B69D72B0D627000402EB9 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 422B69D62B0D627000402EB9 /* SDWebImage */; };
+		422B69D92B0D627000402EB9 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 422B69D82B0D627000402EB9 /* SDWebImageMapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +47,8 @@
 		422B69C92B0431DA00402EB9 /* ElegirUsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElegirUsuarioViewController.swift; sourceTree = "<group>"; };
 		422B69CD2B043B2900402EB9 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		422B69CF2B04453C00402EB9 /* CrearUsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrearUsuarioViewController.swift; sourceTree = "<group>"; };
+		422B69D12B0D557A00402EB9 /* Snap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snap.swift; sourceTree = "<group>"; };
+		422B69D32B0D5DAE00402EB9 /* VerSnapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerSnapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +57,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				422B69C62B0429F700402EB9 /* FirebaseDatabase in Frameworks */,
+				422B69D92B0D627000402EB9 /* SDWebImageMapKit in Frameworks */,
 				422B69BD2AFAF98100402EB9 /* GoogleSignInSwift in Frameworks */,
+				422B69D72B0D627000402EB9 /* SDWebImage in Frameworks */,
 				422B69AE2AFAE19000402EB9 /* FirebaseAnalytics in Frameworks */,
 				422B69BB2AFAF98100402EB9 /* GoogleSignIn in Frameworks */,
 				422B69C82B042A0400402EB9 /* FirebaseStorage in Frameworks */,
@@ -111,6 +119,7 @@
 				422B69982AFADC9100402EB9 /* iniciarSesionViewController.swift */,
 				422B69C92B0431DA00402EB9 /* ElegirUsuarioViewController.swift */,
 				422B69CF2B04453C00402EB9 /* CrearUsuarioViewController.swift */,
+				422B69D32B0D5DAE00402EB9 /* VerSnapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -119,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				422B69CD2B043B2900402EB9 /* Usuario.swift */,
+				422B69D12B0D557A00402EB9 /* Snap.swift */,
 			);
 			path = Modelos;
 			sourceTree = "<group>";
@@ -147,6 +157,8 @@
 				422B69BC2AFAF98100402EB9 /* GoogleSignInSwift */,
 				422B69C52B0429F700402EB9 /* FirebaseDatabase */,
 				422B69C72B042A0400402EB9 /* FirebaseStorage */,
+				422B69D62B0D627000402EB9 /* SDWebImage */,
+				422B69D82B0D627000402EB9 /* SDWebImageMapKit */,
 			);
 			productName = TapiaSnapchat;
 			productReference = 422B69912AFADC9100402EB9 /* TapiaSnapchat.app */;
@@ -179,6 +191,7 @@
 			packageReferences = (
 				422B69AC2AFAE19000402EB9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				422B69B92AFAF98100402EB9 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				422B69D52B0D627000402EB9 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 422B69922AFADC9100402EB9 /* Products */;
 			projectDirPath = "";
@@ -210,7 +223,9 @@
 			files = (
 				422B69C12B041A5F00402EB9 /* SnapsViewController.swift in Sources */,
 				422B69C32B04207D00402EB9 /* ImagenViewController.swift in Sources */,
+				422B69D22B0D557A00402EB9 /* Snap.swift in Sources */,
 				422B69CE2B043B2900402EB9 /* Usuario.swift in Sources */,
+				422B69D42B0D5DAE00402EB9 /* VerSnapViewController.swift in Sources */,
 				422B69992AFADC9100402EB9 /* iniciarSesionViewController.swift in Sources */,
 				422B69952AFADC9100402EB9 /* AppDelegate.swift in Sources */,
 				422B69972AFADC9100402EB9 /* SceneDelegate.swift in Sources */,
@@ -449,6 +464,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		422B69D52B0D627000402EB9 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -486,6 +509,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 422B69AC2AFAE19000402EB9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		422B69D62B0D627000402EB9 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 422B69D52B0D627000402EB9 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		422B69D82B0D627000402EB9 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 422B69D52B0D627000402EB9 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -11,6 +11,7 @@ import FirebaseStorage
 class ImagenViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     var imagePicker = UIImagePickerController()
+    var imagenID = NSUUID().uuidString
 
     @IBAction func camaraTapped(_ sender: Any) {
         imagePicker.sourceType = .savedPhotosAlbum
@@ -22,21 +23,49 @@ class ImagenViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     @IBOutlet weak var elegirContactoBoton: UIButton!
     @IBAction func elegirContactoTapped(_ sender: Any) {
         self.elegirContactoBoton.isEnabled = false
-        let imagenesFolder = Storage.storage().reference().child("imagenes")
-        let imagenData = imageView.image?.jpegData(compressionQuality: 0.50)
         
-        if let imagenData = imagenData {
-            let cargarImagen = imagenesFolder.child("\(NSUUID().uuidString).jpg").putData(imagenData, metadata: nil) { (metadata, error) in
-                if let error = error {
-                    self.mostrarAlerta(titulo: "Error", mensaje: "Se produjo un error al subir la imagen. Verifique su conexión a internet y vuelva a intentarlo.", accion: "Aceptar")
-                    self.elegirContactoBoton.isEnabled = true
-                    print("Ocurrió un error al subir imagen: \(error)")
-                } else {
-                    self.performSegue(withIdentifier: "seleccionarContactoSegue", sender: nil)
+        // Referencia al folder de imágenes en Firebase Storage
+        let imagenesFolder = Storage.storage().reference().child("imagenes")
+        
+        // Convertir la imagen a datos JPEG con cierta calidad
+        guard let imagenData = imageView.image?.jpegData(compressionQuality: 0.50) else {
+            // Manejo de error si la imagen no puede ser convertida a datos
+            self.mostrarAlerta(titulo: "Error", mensaje: "No se pudo obtener la imagen.", accion: "Aceptar")
+            self.elegirContactoBoton.isEnabled = true
+            return
+        }
+        
+        // Crear un nombre único para la imagen usando UUID
+        let nombreImagen = "\(UUID().uuidString).jpg"
+        let cargarImagen = imagenesFolder.child("\(imagenID).jpg)")
+        
+        // Subir la imagen a Firebase Storage
+        cargarImagen.putData(imagenData, metadata: nil) { (metadata, error) in
+            if let error = error {
+                // Manejar el error si la carga falla
+                self.mostrarAlerta(titulo: "Error", mensaje: "Ocurrió un error al subir la imagen. Verifique su conexión a internet y vuelva a intentarlo.", accion: "Aceptar")
+                self.elegirContactoBoton.isEnabled = true
+                print("Ocurrió un error al subir la imagen: \(error)")
+                return
+            } else {
+                // Si la carga es exitosa, obtener la URL de descarga de la imagen
+                cargarImagen.downloadURL { (url, error) in
+                    if let error = error {
+                        // Manejar el error si no se puede obtener la URL de descarga
+                        self.mostrarAlerta(titulo: "Error", mensaje: "Ocurrió un error al obtener la información de la imagen.", accion: "Cancelar")
+                        self.elegirContactoBoton.isEnabled = true
+                        print("Ocurrió un error al obtener información de la imagen: \(error)")
+                        return
+                    }
+                    // Si se obtiene la URL, realizar la transición a la siguiente vista
+                    if let imageURL = url {
+                        self.performSegue(withIdentifier: "seleccionarContactoSegue", sender: imageURL.absoluteString)
+                    }
                 }
             }
-            
-            let alertaCarga = UIAlertController(title: "Cargando Imagen ...", message: "0%", preferredStyle: .alert)
+        }
+
+            /*let alertaCarga = UIAlertController(title: "Cargando Imagen ...", message: "0%", preferredStyle: .alert)
             let progresoCarga = UIProgressView(progressViewStyle: .default)
             
             cargarImagen.observe(.progress) { (snapshot) in
@@ -56,7 +85,8 @@ class ImagenViewController: UIViewController,UIImagePickerControllerDelegate,UIN
             alertaCarga.view.addSubview(progresoCarga)
             
             present(alertaCarga, animated: true, completion: nil)
-        }
+             */
+        
     }
 
     
@@ -67,15 +97,10 @@ class ImagenViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let imagenesFolder = Storage.storage().reference().child("imagenes")
-        
-        if let imagenData = imageView.image?.jpegData(compressionQuality: 0.50) {
-            imagenesFolder.child("imagenes.jpg").putData(imagenData, metadata: nil) { (metadata, error) in
-                if let error = error {
-                    print("Ocurrió un error al subir la imagen: \(error)")
-                }
-            }
-        }
+        let siguienteVC = segue.destination as! ElegirUsuarioViewController
+        siguienteVC.imagenURL = sender as! String
+        siguienteVC.descrip = descripcionTextField.text!
+        siguienteVC.imagenID = imagenID
     }
     
     func mostrarAlerta(titulo: String, mensaje: String, accion: String) {
