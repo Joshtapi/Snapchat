@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseStorage
 
 class ElegirUsuarioViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -16,12 +17,14 @@ class ElegirUsuarioViewController: UIViewController, UITableViewDataSource, UITa
     var imagenURL = " "
     var descrip = " "
     var imagenID = " "
+    var audioURL = " "
+    var audioID = " "
     
     override func viewDidLoad() {
         super.viewDidLoad()
         listaUsuarios.delegate = self
         listaUsuarios.dataSource = self
-        Database.database().reference().child("usuarios").observe(DataEventType.childAdded,with: {(snapshot) in
+        Database.database().reference().child("usuarios").observe(DataEventType.childAdded, with: {(snapshot) in
             print(snapshot)
             let usuario = Usuario()
             usuario.email = (snapshot.value as! NSDictionary)["email"] as! String
@@ -46,11 +49,34 @@ class ElegirUsuarioViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let usuario = usuarios[indexPath.row]
-        let snap = ["from" : Auth.auth().currentUser?.email, "descripcion" : descrip, "imagenURL" : imagenURL, "imagenID" : imagenID]
+        
+        let snap = [
+            "from": Auth.auth().currentUser?.email,
+            "descripcion": descrip,
+            "imagenURL": imagenURL,
+            "imagenID": imagenID,
+            "audioURL": audioURL,   // Agrega el audioURL al diccionario del snap
+            "audioID": audioID      // Agrega el audioID al diccionario del snap
+        ]
         
         Database.database().reference().child("usuarios").child(usuario.uid).child("snaps").childByAutoId().setValue(snap)
+        
+        // Sube el archivo de audio a Firebase Storage
+        let audioRef = Storage.storage().reference().child("audios").child("\(audioID).m4a")
+        let audioData = Data() // Aquí debes proporcionar los datos del audio a subir
+        let metadata = StorageMetadata()
+        metadata.contentType = "audio/m4a"
+        
+        audioRef.putData(audioData, metadata: metadata) { (metadata, error) in
+            if let error = error {
+                // Error al subir el audio
+                print("Error al subir el audio: \(error.localizedDescription)")
+            } else {
+                // El audio se ha subido correctamente
+                print("Audio subido exitosamente.")
+            }
+        }
+        
         navigationController?.popViewController(animated: true)
     }
-
 }
-

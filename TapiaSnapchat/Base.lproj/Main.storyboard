@@ -206,17 +206,53 @@
                                     <action selector="elegirContactoTapped:" destination="lJn-jw-fYF" eventType="touchUpInside" id="cus-ri-EsV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNE-hu-e7y">
+                                <rect key="frame" x="148" y="348" width="118.5" height="64"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="grabar" title="Grabar"/>
+                                <connections>
+                                    <action selector="grabarTapped:" destination="lJn-jw-fYF" eventType="touchUpInside" id="Uoc-80-kXb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ZV-nA-Ise">
+                                <rect key="frame" x="134.5" y="452" width="145" height="64"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Reproducir" title="Reproducir"/>
+                                <connections>
+                                    <action selector="reproducirTapped:" destination="lJn-jw-fYF" eventType="touchUpInside" id="iMh-fw-VcD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZg-PJ-1cL">
+                                <rect key="frame" x="174" y="539" width="66" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXT-67-MWE">
+                                <rect key="frame" x="159" y="580" width="97" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ywv-yD-sJ6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="0ZV-nA-Ise" firstAttribute="top" secondItem="vNE-hu-e7y" secondAttribute="bottom" constant="40" id="9Wt-G6-Ddp"/>
+                            <constraint firstItem="Ywv-yD-sJ6" firstAttribute="trailing" secondItem="FXT-67-MWE" secondAttribute="trailing" constant="158" id="EQn-Fk-xWl"/>
                             <constraint firstItem="Zyv-qi-Sdq" firstAttribute="centerX" secondItem="5Vp-wA-vN2" secondAttribute="centerX" id="FJu-UB-yKV"/>
+                            <constraint firstItem="vNE-hu-e7y" firstAttribute="centerX" secondItem="5Vp-wA-vN2" secondAttribute="centerX" id="GP0-up-t4b"/>
                             <constraint firstItem="3qT-C3-brj" firstAttribute="leading" secondItem="Ywv-yD-sJ6" secondAttribute="leading" constant="87" id="Kvv-u3-v86"/>
                             <constraint firstItem="Zyv-qi-Sdq" firstAttribute="top" secondItem="3qT-C3-brj" secondAttribute="bottom" constant="15" id="Osa-0N-ESa"/>
                             <constraint firstItem="YRZ-HM-0j2" firstAttribute="top" secondItem="Zyv-qi-Sdq" secondAttribute="bottom" constant="20" id="Pkc-8e-GPg"/>
+                            <constraint firstItem="DZg-PJ-1cL" firstAttribute="top" secondItem="0ZV-nA-Ise" secondAttribute="bottom" constant="23" id="T9p-FG-JEg"/>
+                            <constraint firstItem="FXT-67-MWE" firstAttribute="leading" secondItem="Ywv-yD-sJ6" secondAttribute="leading" constant="159" id="YEY-Hl-CJc"/>
                             <constraint firstItem="3qT-C3-brj" firstAttribute="centerX" secondItem="5Vp-wA-vN2" secondAttribute="centerX" id="bLZ-f0-nob"/>
                             <constraint firstItem="3qT-C3-brj" firstAttribute="top" secondItem="Ywv-yD-sJ6" secondAttribute="top" constant="20" id="fdx-M8-ALH"/>
+                            <constraint firstItem="DZg-PJ-1cL" firstAttribute="centerX" secondItem="5Vp-wA-vN2" secondAttribute="centerX" id="hYq-TY-V3c"/>
+                            <constraint firstItem="0ZV-nA-Ise" firstAttribute="centerX" secondItem="5Vp-wA-vN2" secondAttribute="centerX" id="nhw-dR-pRd"/>
+                            <constraint firstItem="FXT-67-MWE" firstAttribute="top" secondItem="DZg-PJ-1cL" secondAttribute="bottom" constant="20" id="nqV-Md-WW5"/>
                             <constraint firstItem="YRZ-HM-0j2" firstAttribute="centerX" secondItem="5Vp-wA-vN2" secondAttribute="centerX" id="oR1-gp-LEw"/>
+                            <constraint firstItem="vNE-hu-e7y" firstAttribute="top" secondItem="YRZ-HM-0j2" secondAttribute="bottom" constant="40" id="xCA-pK-oXS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Enviar Mensaje" id="hWw-MX-yC5">
@@ -227,9 +263,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="Nombretextfild" destination="FXT-67-MWE" id="ene-fh-bK1"/>
                         <outlet property="descripcionTextField" destination="Zyv-qi-Sdq" id="mvl-m5-Hle"/>
                         <outlet property="elegirContactoBoton" destination="YRZ-HM-0j2" id="BiA-p4-T7H"/>
+                        <outlet property="grabarButton" destination="vNE-hu-e7y" id="ZK0-Ee-0oT"/>
                         <outlet property="imageView" destination="3qT-C3-brj" id="b37-5J-Iu3"/>
+                        <outlet property="reproducirButton" destination="0ZV-nA-Ise" id="WZy-OI-meJ"/>
                         <segue destination="B2e-0m-OsE" kind="show" identifier="seleccionarContactoSegue" id="90A-t9-CkG"/>
                     </connections>
                 </viewController>
@@ -431,6 +470,15 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jRX-jv-Fye">
                                 <rect key="frame" x="57" y="246" width="300" height="212"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5Y-lj-giN">
+                                <rect key="frame" x="135" y="500" width="145" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Reproducir" title="Reproducir"/>
+                                <connections>
+                                    <action selector="reproducir:" destination="GnG-6F-Rv3" eventType="touchUpInside" id="IUu-x0-fAV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QoV-C0-ow6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -462,11 +510,13 @@
         <segue reference="G3f-sP-gdi"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="Reproducir" width="50" height="50"/>
         <image name="add-user" width="32" height="32"/>
         <image name="anadir-grupo" width="128" height="128"/>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="celebrando" width="256" height="256"/>
         <image name="desconocido" width="512" height="512"/>
+        <image name="grabar" width="50" height="50"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="volver" width="30" height="30"/>
         <systemColor name="labelColor">
